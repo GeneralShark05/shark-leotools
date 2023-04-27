@@ -8,6 +8,10 @@ A collection of various items, tools, and utilities for your police!
 - [ox_lib](https://github.com/overextended/ox_lib)
 - [ox_inventory](https://github.com/overextended/ox_inventory)
 
+
+## Install
+Ensure ox_lib and ox_inventory prior
+
 Add the following to your data/items.lua in ox_inventory
 
 	['nikkit'] = {
@@ -29,7 +33,7 @@ Add the following to your data/items.lua in ox_inventory
 		weight = 1000,
 		stack = false,
 		client = {
-			event = exports('sharkcops-vision', 'nvg')
+			export = 'shark-leotools.vision'
 		}
 	},
 
@@ -38,7 +42,7 @@ Add the following to your data/items.lua in ox_inventory
 		weight = 1000,
 		stack = false,
 		client = {
-			event = exports('sharkcops-vision', 'thm')
+			export = 'shark-leotools.vision'
 		}
 	},
 
@@ -47,7 +51,7 @@ Add the following to your data/items.lua in ox_inventory
 		weight = 1000,
 		stack = false,
 		client = {
-			event = exports('sharkcops-vision', 'gas')
+			export = 'shark-leotools.vision'
 		}
 	},
 	

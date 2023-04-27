@@ -3,11 +3,13 @@ Config = {}
 Config.NIK = {
 	Amphetamine = {
 		'meth_baggie',
+		'meth_packaged',
 		'meth_brick',
 		'meth_pure'
 	},
 	Cocaine = {
-		'coke_baggie',
+		'coke_packaged',
+		'cocaine',
 		'coke_brick',
 		'coke_raw',
 		'coca',
@@ -35,9 +37,25 @@ Config.NIK = {
 }
 
 Config.Goggles = {
-	Item = {
-		['nvg'] = 'nightvision', -- ['Ref. Name - Do Not Change'] = 'Item Name'
-		['thm'] = 'thermalvision',
-		['gas'] = 'gasmask'
+	['nvg'] = {
+		item = 'nightvision',
+		clothes = 119,
+		switch = SetNightvision
+	},
+	['thm'] = {
+		item = 'thermalvision',
+		clothes = 148,
+		switch = SetSeethrough
+	},
+	['gas'] = {
+		item = 'gasmask',
+		clothes = 46,
+		switch = nil
 	}
+}
+
+Config.goggConv = {
+    ['nightvision'] = 'nvg',
+    ['thermalvision'] = 'thm',
+    ['gasmask'] = 'gas',
 }

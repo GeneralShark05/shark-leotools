@@ -6,7 +6,7 @@ author 'General Shark'
 description 'Collection of Police Utilities'
 version '1.0'
 
-dependencies { 'ox_lib', 'ox_inventory'}
+dependencies { 'ox_lib'}
 
 shared_scripts {'@ox_lib/init.lua','config.lua'}
 

@@ -29,5 +29,5 @@ end,
 
 ---- NVGs
 RegisterServerEvent('sharkcops:giveBack', function(type)
-    ox_inventory:AddItem(source, Config.Goggles[type].item, 1)
+    ox_inventory:AddItem(source, type, 1)
 end)

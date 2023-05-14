@@ -37,25 +37,19 @@ Config.NIK = {
 }
 
 Config.Goggles = {
-	['nvg'] = {
-		item = 'nightvision',
+	['nightvision'] = {
+		type = 'nvg',
 		clothes = 119,
 		switch = SetNightvision
 	},
-	['thm'] = {
-		item = 'thermalvision',
+	['thermalvision'] = {
+		type = 'thm',
 		clothes = 148,
 		switch = SetSeethrough
 	},
-	['gas'] = {
-		item = 'gasmask',
+	['gasmask'] = {
+		type = 'gas',
 		clothes = 46,
 		switch = nil
 	}
-}
-
-Config.goggConv = {
-    ['nightvision'] = 'nvg',
-    ['thermalvision'] = 'thm',
-    ['gasmask'] = 'gas',
 }

@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'General Shark'
 description 'Collection of Police Utilities'
-version '1.0'
+version '1.1'
 
 dependencies { 'ox_lib'}
 

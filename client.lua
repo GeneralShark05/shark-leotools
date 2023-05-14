@@ -22,7 +22,7 @@ end)
 -- NVGs and Gas Masks --
 ----------------------------
 local wearingGoggs, activeGoggs = false, false -- Are Goggles Equipped, Are Goggles Active
-local wearType, clothesType, switchType
+local wearType, clothesType, switchType, itemName
 
 -- Function
 local function ensureAnimDict(animDict)
@@ -71,7 +71,6 @@ local goggRadial = {
         icon = 'eye-slash',
         onSelect = function()
             TriggerEvent('sharkcops:removeVision')
-            TriggerServerEvent('sharkcops:giveBack', wearType)
         end
     },
 }
@@ -83,7 +82,6 @@ local maskRadial = {
         icon = 'mask-ventilator',
         onSelect = function()
             TriggerEvent('sharkcops:removeVision')
-            TriggerServerEvent('sharkcops:giveBack', wearType)
         end
     },
 }
@@ -92,9 +90,10 @@ local maskRadial = {
 exports('vision', function(data, slot)
     local ped = PlayerPedId()
 
-    wearType = Config.goggConv[data.name]
-    clothesType = Config.Goggles[wearType].clothes
-    switchType = Config.Goggles[wearType].switch
+    itemName = data.name
+    wearType = Config.Goggles[data.name].type
+    clothesType = Config.Goggles[data.name].clothes
+    switchType = Config.Goggles[data.name].switch
 
     if wearingGoggs then -- If already equipped, don't
         lib.notify({
@@ -128,7 +127,7 @@ end)
 RegisterNetEvent('sharkcops:removeVision')
 AddEventHandler('sharkcops:removeVision', function() -- Remove Goggles
     local ped = PlayerPedId()
-
+    ensureAnimDict('missheist_agency2ahelmet')
     TaskPlayAnim(ped, "missheist_agency2ahelmet", "take_off_helmet_stand", 8.0, -8.0, -1, 48, 0, false, false, false)
     Wait(1000)
     
@@ -142,6 +141,7 @@ AddEventHandler('sharkcops:removeVision', function() -- Remove Goggles
         lib.removeRadialItem('sharkcops:toggle')
         lib.removeRadialItem('sharkcops:remove')
     end
-
+    TriggerServerEvent('sharkcops:giveBack', itemName)
+    RemoveAnimDict('missheist_agency2ahelmet')
     wearingGoggs = false
 end)

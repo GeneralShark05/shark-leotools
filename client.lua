@@ -2,22 +2,33 @@
 -- Window Tint Checker --
 ----------------------------
 local tintTable = {
-    [0] = 70,
-    [1] = 50,
-    [2] = 20,
-    [3] = 5, 
-    [4] = 35,
+    [-1] = 70, -- None
+    [0] = 70, -- None
+    [4] = 70, -- Stock
+    [5] = 50, -- Limo
+    [3] = 35, -- Light Smoke
+    [6] = 20, -- Green 
+    [2] = 10, -- Dark Smoke
+    [1] = 5, -- Pure Black
 }
 
-RegisterNetEvent('shark:checkTint')
-AddEventHandler('shark:checkTint', function(entityID)
+RegisterNetEvent('shark-leotools:checkTint')
+AddEventHandler('shark-leotools:checkTint', function(entityID)
     if entityID ~= nil then
         local tintLev = GetVehicleWindowTint(entityID)
-        lib.notify(
+        print(tintLev)
+        local tintDesc = ''..tintTable[tintLev]..'% Tint Level'
+        lib.notify({
             id = 'tintInfo',
-            description = tintTable[tintLev]..'% Tint',
+            description = tintDesc,
             type = 'inform'
-        )
+        })
+    else
+        lib.notify({
+            id = 'tintError',
+            description = 'Tint Meter Error',
+            type = 'error'
+        })
     end
 end)
 
@@ -26,8 +37,8 @@ local tintOption = {
         name = 'shark:tint',
         onSelect = function(data) 
             TriggerEvent('shark-leotools:checkTint', data.entity)
-        end
-        icon = 'fa-solid fa-window',
+        end,
+        icon = 'fa-solid fa-magnifying-glass',
         label = 'Check Window Tint',
         items = 'tintmeter',
         bones = {

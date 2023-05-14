@@ -14,6 +14,13 @@ Ensure ox_lib and ox_inventory prior
 
 Add the following to your data/items.lua in ox_inventory
 
+	['tintmeter'] = {
+		label = 'Tint Meter',
+		weight = 10,
+		stack = false,
+		close = true
+	},
+
 	['nikkit'] = {
 		label = 'NIK Kit',
 		weight = 10,

@@ -1,4 +1,57 @@
 ----------------------------
+-- Window Tint Checker --
+----------------------------
+local tintTable = {
+    [0] = 70,
+    [1] = 50,
+    [2] = 20,
+    [3] = 5, 
+    [4] = 35,
+}
+
+RegisterNetEvent('shark:checkTint')
+AddEventHandler('shark:checkTint', function(entityID)
+    if entityID ~= nil then
+        local tintLev = GetVehicleWindowTint(entityID)
+        lib.notify(
+            id = 'tintInfo',
+            description = tintTable[tintLev]..'% Tint',
+            type = 'inform'
+        )
+    end
+end)
+
+local tintOption = {
+    {
+        name = 'shark:tint',
+        onSelect = function(data) 
+            TriggerEvent('shark-leotools:checkTint', data.entity)
+        end
+        icon = 'fa-solid fa-window',
+        label = 'Check Window Tint',
+        items = 'tintmeter',
+        bones = {
+            'window_lf1',
+            'window_lf2',
+            'window_lf3',
+            'window_rf1',
+            'window_rf2',
+            'window_rf3',
+            'window_lr1',
+            'window_lr2',
+            'window_lr3',
+            'window_rr1',
+            'window_rr2',
+            'window_rr3',
+            'windscreen_f',
+            'windscreen',
+        }
+    }
+}
+
+exports.ox_target:addGlobalVehicle(tintOption)
+
+----------------------------
 -- NIK Kits --
 ----------------------------
 RegisterNetEvent('shark-leotools:nikkit')

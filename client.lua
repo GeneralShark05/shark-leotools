@@ -134,12 +134,12 @@ AddEventHandler('shark-leotools:removeVision', function() -- Remove Goggles
     if wearType == 'gas' then -- Gas Mask Disable
         SetEntityProofs(ped, false, false, false, false, false, false, false, false, false)
         SetPedComponentVariation(ped, 1, 0, 0, 0)
-        lib.removeRadialItem('sharkcops:remove')
+        lib.removeRadialItem('shark-leotools:remove')
     else -- Goggle Disable
         switchType(false)
         ClearPedProp(ped, 0)
-        lib.removeRadialItem('sharkcops:toggle')
-        lib.removeRadialItem('sharkcops:remove')
+        lib.removeRadialItem('shark-leotools:toggle')
+        lib.removeRadialItem('shark-leotools:remove')
     end
     TriggerServerEvent('shark-leotools:giveBack', itemName)
     RemoveAnimDict('missheist_agency2ahelmet')

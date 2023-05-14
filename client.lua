@@ -1,8 +1,8 @@
 ----------------------------
 -- NIK Kits --
 ----------------------------
-RegisterNetEvent('sharkcops-nikkit')
-AddEventHandler('sharkcops-nikkit', function()
+RegisterNetEvent('shark-leotools:nikkit')
+AddEventHandler('shark-leotools:nikkit', function()
     lib.progressBar({
         duration = 2000,
         label = 'Testing..',
@@ -59,7 +59,7 @@ end
 local goggRadial = {
     {
         label = 'Toggle Goggles',
-        id = 'sharkcops:toggle',
+        id = 'shark-leotools:toggle',
         icon = 'power-off',
         onSelect = function()
             toggleGoggs()
@@ -67,10 +67,10 @@ local goggRadial = {
     },
     {
         label = 'Remove Goggles',
-        id = 'sharkcops:remove',
+        id = 'shark-leotools:remove',
         icon = 'eye-slash',
         onSelect = function()
-            TriggerEvent('sharkcops:removeVision')
+            TriggerEvent('shark-leotools:removeVision')
         end
     },
 }
@@ -78,10 +78,10 @@ local goggRadial = {
 local maskRadial = {
     {
         label = 'Remove Mask',
-        id = 'sharkcops:remove',
+        id = 'shark-leotools:remove',
         icon = 'mask-ventilator',
         onSelect = function()
-            TriggerEvent('sharkcops:removeVision')
+            TriggerEvent('shark-leotools:removeVision')
         end
     },
 }
@@ -124,8 +124,8 @@ exports('vision', function(data, slot)
     end
 end)
 
-RegisterNetEvent('sharkcops:removeVision')
-AddEventHandler('sharkcops:removeVision', function() -- Remove Goggles
+RegisterNetEvent('shark-leotools:removeVision')
+AddEventHandler('shark-leotools:removeVision', function() -- Remove Goggles
     local ped = PlayerPedId()
     ensureAnimDict('missheist_agency2ahelmet')
     TaskPlayAnim(ped, "missheist_agency2ahelmet", "take_off_helmet_stand", 8.0, -8.0, -1, 48, 0, false, false, false)
@@ -141,7 +141,7 @@ AddEventHandler('sharkcops:removeVision', function() -- Remove Goggles
         lib.removeRadialItem('sharkcops:toggle')
         lib.removeRadialItem('sharkcops:remove')
     end
-    TriggerServerEvent('sharkcops:giveBack', itemName)
+    TriggerServerEvent('shark-leotools:giveBack', itemName)
     RemoveAnimDict('missheist_agency2ahelmet')
     wearingGoggs = false
 end)

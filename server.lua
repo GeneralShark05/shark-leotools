@@ -8,7 +8,7 @@ local testKit = ox_inventory:registerHook('swapItems', function(payload)
     if  payload.toSlot ~= nil and payload.toSlot.name ~= 'nikkit' and payload.fromInventory == payload.source then
         local drug = payload.toSlot.name
         TriggerClientEvent('ox_inventory:closeInventory', src)
-        TriggerClientEvent('shark-nikkit-TestKit', src)
+        TriggerClientEvent('shark-leotools:TestKit', src)
         Wait(2000)
         ox_inventory:RemoveItem(src, 'nikkit', 1)
         for key, value in pairs(Config.NIK) do
@@ -28,6 +28,6 @@ end,
 })
 
 ---- NVGs
-RegisterServerEvent('sharkcops:giveBack', function(type)
+RegisterServerEvent('shark-leotools:giveBack', function(type)
     ox_inventory:AddItem(source, type, 1)
 end)

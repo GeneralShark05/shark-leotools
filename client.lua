@@ -1,23 +1,12 @@
 ----------------------------
 -- Window Tint Checker --
 ----------------------------
-local tintTable = {
-    [-1] = 70, -- None
-    [0] = 70, -- None
-    [4] = 70, -- Stock
-    [5] = 50, -- Limo
-    [3] = 35, -- Light Smoke
-    [6] = 20, -- Green 
-    [2] = 10, -- Dark Smoke
-    [1] = 5, -- Pure Black
-}
-
 RegisterNetEvent('shark-leotools:checkTint')
 AddEventHandler('shark-leotools:checkTint', function(entityID)
     if entityID ~= nil then
         local tintLev = GetVehicleWindowTint(entityID)
         print(tintLev)
-        local tintDesc = ''..tintTable[tintLev]..'% Tint Level'
+        local tintDesc = ''..Config.tintTable[tintLev]..'% Tint Level'
         lib.notify({
             id = 'tintInfo',
             description = tintDesc,

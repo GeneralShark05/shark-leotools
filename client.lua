@@ -5,6 +5,7 @@ RegisterNetEvent('shark-leotools:checkTint')
 AddEventHandler('shark-leotools:checkTint', function(entityID)
     if entityID ~= nil then
         local tintLev = GetVehicleWindowTint(entityID)
+        --print(tintLev)
         local tintDesc = ''..Config.tintTable[tintLev]..'% Tint Level'
         lib.notify({
             id = 'tintInfo',
@@ -82,6 +83,7 @@ local function ensureAnimDict(animDict)
         RequestAnimDict(animDict)
         while not HasAnimDictLoaded(animDict) do
             Wait(0)
+            --print('wait '..animDict)
         end
     end
     return animDict

@@ -4,9 +4,9 @@ lua54 'yes'
 
 author 'General Shark'
 description 'Collection of Police Utilities'
-version '1.2.2'
+version '1.2.3'
 
-dependencies { 'ox_lib'}
+dependencies { 'ox_lib', 'ox_inventory', 'ox_target'}
 
 shared_scripts {'@ox_lib/init.lua','config.lua'}
 
